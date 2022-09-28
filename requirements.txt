@@ -1,0 +1,6 @@
+torch
+torchvision
+gtimer
+scikit-video
+imageio-ffmpeg
+-e .

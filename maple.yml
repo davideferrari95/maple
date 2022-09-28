@@ -157,7 +157,7 @@ dependencies:
     - matplotlib==3.4.3
     - monotonic==1.5
     - moviepy==1.0.3
-    - mujoco-py==2.0.2.9
+    # - mujoco-py>=2.0.2.9
     - nbclassic==0.3.1
     - nbformat==5.0.8
     - networkx==2.6.2
@@ -205,8 +205,8 @@ dependencies:
     - threadpoolctl==2.2.0
     - tifffile==2021.8.8
     - tomlkit==0.7.2
-    - torch==1.6.0
-    - torchvision==0.7.0
+    # - torch==1.6.0
+    # - torchvision==0.7.0
     - tqdm==4.61.1
     - typing-extensions==3.7.4.3
     - uritemplate==3.0.1
