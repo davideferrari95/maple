@@ -422,7 +422,7 @@ except ImportError:
 
 target_mount = None
 
-
+# Funzione per avviare il tutto
 def run_experiment(
         method_call,
         mode='local',
@@ -501,14 +501,20 @@ def run_experiment(
     config.SSH_DEFAULT_HOST
     :return:
     """
-    try:
-        import doodad
-        import doodad.mode
-        import doodad.ssh
-    except ImportError:
-        doodad = None
-        print("Doodad not set up! Running experiment here.")
-        mode = 'here_no_doodad'
+    # try:
+    #     import doodad
+    #     import doodad.mode
+    #     import doodad.mode.Local
+    #     import doodad.credentials.ssh
+    # except ImportError:
+    #     doodad = None
+    #     print("Doodad not set up! Running experiment here.")
+    #     mode = 'here_no_doodad'
+    
+    # Doodad disabilitato
+    doodad = None
+    mode = 'here_no_doodad'
+    
     global ec2_okayed
     global gpu_ec2_okayed
     global target_mount
@@ -517,6 +523,7 @@ def run_experiment(
     """
     Sanitize inputs as needed
     """
+    # Selezionare un seed randomico
     if seed is None:
         seed = random.randint(0, 100000)
     if variant is None:
@@ -661,7 +668,7 @@ def run_experiment(
     Create mode
     """
     if mode == 'local':
-        dmode = doodad.mode.Local(skip_wait=skip_wait)
+        dmode = doodad.mode.LocalMode(skip_wait=skip_wait)
     elif mode == 'local_docker':
         dmode = doodad.mode.LocalDocker(
             image=docker_image,
